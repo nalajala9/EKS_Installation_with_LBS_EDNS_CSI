@@ -15,7 +15,7 @@ output "aws_iam_openid_connect_provider_arn" {
   value = aws_iam_openid_connect_provider.oidc.arn 
 }
 output "ebs_csi_iam_policy" {
-  value = data.http.ebs_csi_iam_policy.body
+  value = data.http.ebs_csi_iam_policy.response_body
 }
 output "ebs_csi_iam_policy_arn" {
   value = aws_iam_policy.ebs_csi_iam_policy.arn 

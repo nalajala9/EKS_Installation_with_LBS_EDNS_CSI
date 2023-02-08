@@ -1,6 +1,7 @@
 data "aws_availability_zones" "available" {
   state = "available"
 }
+
 data "tls_certificate" "tls" {
   url = aws_eks_cluster.this.identity.0.oidc.0.issuer
 }
