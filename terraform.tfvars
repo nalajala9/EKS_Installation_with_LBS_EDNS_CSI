@@ -1,5 +1,5 @@
 region                   = "ap-south-1"
-availability_zones_count = 3
+availability_zones_count = 2
 
 project = "TF-EKS"
 
