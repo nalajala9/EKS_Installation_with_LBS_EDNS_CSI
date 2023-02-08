@@ -4,6 +4,7 @@ data "aws_availability_zones" "available" {
 data "tls_certificate" "tls" {
   url = aws_eks_cluster.this.identity.0.oidc.0.issuer
 }
+
 data "aws_partition" "current" {}
 
 data "terraform_remote_state" "eks" {
@@ -11,7 +12,7 @@ data "terraform_remote_state" "eks" {
   config = {
     bucket = "tfstore97"
     key    = "eks-tf/terraform.tfstate"
-    region = var.aws_region
+    region = var.region
   }
 }
 # Datasource: EKS Cluster Auth 

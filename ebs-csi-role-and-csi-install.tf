@@ -1,7 +1,7 @@
 
 # Resource: Create EBS CSI IAM Policy 
 resource "aws_iam_policy" "ebs_csi_iam_policy" {
-  name        = "$AmazonEKS_EBS_CSI_Driver_Policy"
+  name        = "AmazonEKS_EBS_CSI_Driver_Policy"
   path        = "/"
   description = "EBS CSI IAM Policy"
   policy = data.http.ebs_csi_iam_policy.body

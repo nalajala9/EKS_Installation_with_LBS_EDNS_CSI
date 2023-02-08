@@ -81,6 +81,6 @@ resource "aws_security_group_rule" "cluster_outbound" {
 
 resource "aws_iam_openid_connect_provider" "oidc" {
   client_id_list  = ["sts.${data.aws_partition.current.dns_suffix}"]
-  thumbprint_list = [data.tls_certificate.this.certificates.0.sha1_fingerprint]
+  thumbprint_list = [data.tls_certificate.tls.certificates.0.sha1_fingerprint]
   url             = aws_eks_cluster.this.identity.0.oidc.0.issuer
 }
