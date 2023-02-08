@@ -2,11 +2,6 @@ output "cluster_name" {
   value = aws_eks_cluster.this.name
 }
 
-output "cluster_id" {
-  description = "The name/id of the EKS cluster."
-  value       = aws_eks_cluster.this.id
-}
-
 output "cluster_endpoint" {
   value = aws_eks_cluster.this.endpoint
 }
