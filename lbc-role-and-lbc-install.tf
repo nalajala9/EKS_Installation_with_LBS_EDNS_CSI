@@ -82,7 +82,7 @@ resource "helm_release" "loadbalancer_controller" {
 
   set {
     name  = "region"
-    value = "${var.aws_region}"
+    value = "${var.region}"
   }    
 
   set {
