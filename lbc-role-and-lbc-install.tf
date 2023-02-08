@@ -4,12 +4,12 @@ resource "aws_iam_policy" "lbc_iam_policy" {
   name        = "${var.project}-AWSLoadBalancerControllerIAMPolicy"
   path        = "/"
   description = "AWS Load Balancer Controller IAM Policy"
-  policy = data.http.lbc_iam_policy.body
+  policy = data.http.lbc_iam_policy.response_body
 }
 
 # Resource: Create IAM Role 
 resource "aws_iam_role" "lbc_iam_role" {
-  name = "${local.name}-lbc-iam-role"
+  name = "${var.project}-lbc-iam-role"
 
   # Terraform's "jsonencode" function converts a Terraform expression result to valid JSON syntax.
   assume_role_policy = jsonencode({

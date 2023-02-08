@@ -4,7 +4,7 @@ resource "aws_iam_policy" "ebs_csi_iam_policy" {
   name        = "AmazonEKS_EBS_CSI_Driver_Policy"
   path        = "/"
   description = "EBS CSI IAM Policy"
-  policy = data.http.ebs_csi_iam_policy.body
+  policy = data.http.ebs_csi_iam_policy.response_body
 }
 
 # Resource: Create IAM Role and associate the EBS IAM Policy to it
