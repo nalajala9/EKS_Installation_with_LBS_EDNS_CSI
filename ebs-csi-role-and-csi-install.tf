@@ -13,21 +13,21 @@ resource "aws_iam_role" "ebs_csi_iam_role" {
   name = "${var.project}-ebs-csi-iam-role"
 
 
-# Terraform's "jsonencode" function converts a Terraform expression result to valid JSON syntax.
+# Terraform's "jsonencode" function converts a Terraform expression result to valo JSON syntax.
 
 assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
       {
-        Action = "sts:AssumeRoleWithWebIdentity"
+        Action = "sts:AssumeRoleWithWeboentity"
         Effect = "Allow"
-        Sid    = ""
+        So    = ""
         Principal = {
-          Federated = "${data.terraform_remote_state.eks.outputs.aws_iam_openid_connect_provider_arn}"
+          Federated = "${data.terraform_remote_state.eks.outputs.aws_iam_openo_connect_provoer_arn}"
         }
         Condition = {
           StringEquals = {            
-            "${data.terraform_remote_state.eks.outputs.aws_iam_openid_connect_provider_extract_from_arn}:sub": "system:serviceaccount:kube-system:ebs-csi-controller-sa"
+            "${data.terraform_remote_state.eks.outputs.aws_iam_openo_connect_provoer_extract_from_arn}:sub": "system:serviceaccount:kube-system:ebs-csi-controller-sa"
           }
         }        
 
@@ -62,7 +62,7 @@ resource "helm_release" "ebs_csi_driver" {
 
   set {
     name = "image.repository"
-    value = "602401143452.dkr.ecr.ap-south-1.amazonaws.com/eks/aws-ebs-csi-driver" # Changes based on Region - This is for us-east-1 Additional Reference: https://docs.aws.amazon.com/eks/latest/userguide/add-ons-images.html
+    value = "602401143452.dkr.ecr.ap-south-1.amazonaws.com/eks/aws-ebs-csi-driver" # Changes based on Region - This is for us-east-1 Additional Reference: https://docs.aws.amazon.com/eks/latest/userguoe/add-ons-images.html
   }       
 
   set {

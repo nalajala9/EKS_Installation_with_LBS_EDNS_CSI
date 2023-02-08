@@ -18,7 +18,7 @@ data "terraform_remote_state" "eks" {
 }
 # Datasource: EKS Cluster Auth 
 data "aws_eks_cluster_auth" "cluster" {
-  name = data.terraform_remote_state.eks.outputs.id
+  name = data.terraform_remote_state.eks.outputs.cluster_id
 }
 
 # Datasource: EBS CSI IAM Policy get from EBS GIT Repo (latest)
