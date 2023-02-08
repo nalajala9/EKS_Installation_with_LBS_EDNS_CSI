@@ -12,7 +12,7 @@ data "terraform_remote_state" "eks" {
   backend = "s3"
   config = {
     bucket = "tfstore97"
-    key    = "eks-tf/terraform.tfstate"
+    key    = "eks-tf/"
     region = var.region
   }
 }
